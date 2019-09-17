@@ -1,0 +1,12 @@
+Aitvaras is a creature from Lithuanian mythology. It collects wealth, and can bring both good and bad luck to its owner. What you get will depend on you player.
+
+This a project was made by students for Klaipeda State University of Applied Sciences (KVK) as a Agile exercice.
+
+Autors: Artûras Gailius, Algirdas Straukas, Rokas Aukðtakis, Neda Mikelionytë, Deividas Palðauskas.
+
+Klaipëda, 2019.
+
+Orange: #ff9a15 ( R.255; G.154; B.21);
+Red: #ff5f15 (255, 95, 21);
+Yellow: #ffd415 (255, 212, 21);
+
