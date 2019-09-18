@@ -5,17 +5,33 @@ using UnityEngine;
 public class TouchScript : MonoBehaviour
 {
 
-    public bool isTouched = false;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
-        
+
+        if (Input.touchCount == 0)
+        {
+            return;
+        }
+
+        Touch touch = Input.touches[1];
+        Vector3 pos = touch.position;
+
+
+        if (touch.phase == TouchPhase.Began)
+        {
+
+
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(pos);
+            if (Physics.Raycast(ray, out hit))
+            {
+                hit.collider.gameObject.GetComponent<ActionScript>().isTouched = true;
+       
+            }
+        }
+
+
+
     }
 }
