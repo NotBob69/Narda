@@ -6,6 +6,17 @@ public class ActionScript : MonoBehaviour
 {
     public bool isTouched;
 
+    public SpriteRenderer sprite;
+
+
+    public void Update()
+    {
+
+        if (isTouched)
+            sprite.color = Color.red;
+
+
+    }
 
 
 

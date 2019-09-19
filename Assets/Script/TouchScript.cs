@@ -9,6 +9,13 @@ public class TouchScript : MonoBehaviour
     void Update()
     {
 
+        if (Input.GetMouseButtonDown(0))
+        {
+
+            PCTESTCLICK(Input.mousePosition);
+
+        }
+
         if (Input.touchCount == 0)
         {
             return;
@@ -26,7 +33,7 @@ public class TouchScript : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(pos);
             if (Physics.Raycast(ray, out hit))
             {
-                if(!hit.collider.gameObject.GetComponent<ActionScript>())
+                if (hit.collider.gameObject.GetComponent<ActionScript>() != null)
                  hit.collider.gameObject.GetComponent<ActionScript>().isTouched = true;
        
             }
@@ -35,4 +42,20 @@ public class TouchScript : MonoBehaviour
 
 
     }
+    public void PCTESTCLICK(Vector3 v3)
+    {
+
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(v3);
+        if (Physics.Raycast(ray, out hit))
+        {
+
+            if (hit.collider.gameObject.GetComponent<ActionScript>() != null)
+                hit.collider.gameObject.GetComponent<ActionScript>().isTouched = true;
+
+        }
+    }
+
+
+
 }
