@@ -26,7 +26,8 @@ public class TouchScript : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(pos);
             if (Physics.Raycast(ray, out hit))
             {
-                hit.collider.gameObject.GetComponent<ActionScript>().isTouched = true;
+                if(!hit.collider.gameObject.GetComponent<ActionScript>())
+                 hit.collider.gameObject.GetComponent<ActionScript>().isTouched = true;
        
             }
         }
