@@ -6,26 +6,18 @@ public class ActionScript : MonoBehaviour
 {
     public bool isTouched;
 
-    public SpriteRenderer sprite; // just for testing
+    public SpriteRenderer sprite;
 
 
     public void Update()
     {
-        // just for testing
+
         if (isTouched)
             sprite.color = Color.red;
 
 
     }
 
-    public void getNewWayPoint()
-    {
 
-    }
-
-    public void moveToNewWayPoint()
-    {
-
-    }
 
 }
