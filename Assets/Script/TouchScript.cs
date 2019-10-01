@@ -19,7 +19,8 @@ public class TouchScript : MonoBehaviour
         if (Input.touchCount > 0)
         {
 
-
+            Touch touch = Input.GetTouch(0);
+            Vector3 pos = touch.position;
 
             if (touch.phase == TouchPhase.Began)
             {
@@ -29,15 +30,12 @@ public class TouchScript : MonoBehaviour
                 Ray ray = Camera.main.ScreenPointToRay(pos);
                 if (Physics.Raycast(ray, out hit))
 
-                    Touch touch = Input.GetTouch(0);
-                Vector3 pos = touch.position;
+              
 
 
                 if (touch.phase == TouchPhase.Began)
 
                 {
-                    RaycastHit hit;
-                    Ray ray = Camera.main.ScreenPointToRay(pos);
                     if (Physics.Raycast(ray, out hit))
                     {
                         if (hit.collider.gameObject.GetComponent<ActionScript>() != null)
