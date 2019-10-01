@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1370861593755381577}
   - component: {fileID: 1370861593755381576}
+  - component: {fileID: 4903251702698426224}
+  - component: {fileID: 1788071934838296336}
   m_Layer: 0
   m_Name: Gameplay manager
   m_TagString: Untagged
@@ -43,3 +45,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01aee33bfc1edde469d8cec28a502e77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4903251702698426224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370861593755381579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 360798401c2c70b4e93dfd44e667d1f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthTxt: {fileID: 0}
+  cleanlessTxt: {fileID: 0}
+  hungerTxt: {fileID: 0}
+  hapinessTxt: {fileID: 0}
+--- !u!114 &1788071934838296336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370861593755381579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7137f826a20b1954fb505ce3e130c70b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  happiness: 100
+  cleanless: 100
+  hunger: 100
+  health: 100
+  baseTick: 180
+  tickTimer: 0
