@@ -22,7 +22,17 @@ public class TouchScript : MonoBehaviour
             Touch touch = Input.GetTouch(0);
             Vector3 pos = touch.position;
 
+
+        if (touch.phase == TouchPhase.Began)
+        {
+
+
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(pos);
+            if (Physics.Raycast(ray, out hit))
+
             if (touch.phase == TouchPhase.Began)
+
             {
 
 

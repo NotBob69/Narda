@@ -6,6 +6,7 @@ public class CameraMovment : MonoBehaviour
 {
 
 
+
     public GameObject[] screans;
     private GameObject currentScrean;
     public int currentWindow;
@@ -18,6 +19,7 @@ public class CameraMovment : MonoBehaviour
     public bool start;
     public bool end;
 
+
     private void Start()
     {
         currentScrean = screans[0];
@@ -25,9 +27,17 @@ public class CameraMovment : MonoBehaviour
     }
 
 
+    // Start is called before the first frame update
+    void Start()
+    {
+
+        
+    }
+
     // Update is called once per frame
     void Update()
     {
+
         if (playTimer)
         {
             timer -= Time.deltaTime;
@@ -110,6 +120,7 @@ public class CameraMovment : MonoBehaviour
 
             }
 
+
         }
         start = false;
         end = false;
@@ -117,5 +128,4 @@ public class CameraMovment : MonoBehaviour
 
         
     }
-
 }
