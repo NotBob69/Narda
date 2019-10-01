@@ -12,8 +12,7 @@ public class ActionScript : MonoBehaviour
     public void Update()
     {
 
-        if (isTouched)
-            sprite.color = Color.red;
+        
 
 
     }
