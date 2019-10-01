@@ -18,14 +18,6 @@ public class ActionScript : MonoBehaviour
 
     }
 
-    public void getNewWayPoint()
-    {
 
-    }
-
-    public void moveToNewWayPoint()
-    {
-
-    }
 
 }
