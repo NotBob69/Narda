@@ -16,13 +16,10 @@ public class TouchScript : MonoBehaviour
 
         }
 
-        if (Input.touchCount == 0)
+        if (Input.touchCount > 0)
         {
-            return;
-        }
 
-        Touch touch = Input.touches[1];
-        Vector3 pos = touch.position;
+
 
 
         if (touch.phase == TouchPhase.Began)
@@ -32,30 +29,54 @@ public class TouchScript : MonoBehaviour
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(pos);
             if (Physics.Raycast(ray, out hit))
+
+            if (touch.phase == TouchPhase.Began)
+
             {
+
+
+                RaycastHit hit;
+                Ray ray = Camera.main.ScreenPointToRay(pos);
+                if (Physics.Raycast(ray, out hit))
+
+                    Touch touch = Input.GetTouch(0);
+                Vector3 pos = touch.position;
+
+
+                if (touch.phase == TouchPhase.Began)
+
+                {
+                    RaycastHit hit;
+                    Ray ray = Camera.main.ScreenPointToRay(pos);
+                    if (Physics.Raycast(ray, out hit))
+                    {
+                        if (hit.collider.gameObject.GetComponent<ActionScript>() != null)
+                            hit.collider.gameObject.GetComponent<ActionScript>().isTouched = true;
+
+                    }
+                }
+            }
+
+
+
+        }
+    }
+
+        public void PCTESTCLICK(Vector3 v3)
+        {
+
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(v3);
+            if (Physics.Raycast(ray, out hit))
+            {
+
                 if (hit.collider.gameObject.GetComponent<ActionScript>() != null)
-                 hit.collider.gameObject.GetComponent<ActionScript>().isTouched = true;
-       
+                    hit.collider.gameObject.GetComponent<ActionScript>().isTouched = true;
+
             }
         }
 
 
 
-    }
-    public void PCTESTCLICK(Vector3 v3)
-    {
-
-        RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(v3);
-        if (Physics.Raycast(ray, out hit))
-        {
-
-            if (hit.collider.gameObject.GetComponent<ActionScript>() != null)
-                hit.collider.gameObject.GetComponent<ActionScript>().isTouched = true;
-
-        }
-    }
-
-
-
+    
 }
