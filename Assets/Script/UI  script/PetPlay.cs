@@ -2,19 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FeedingScript : MonoBehaviour
+public class PetPlay : MonoBehaviour
 {
 
 
     // reikes padaryti kad panaikinti maista 
-    public void FeedPet()
+    public void PlayWithPet()
     {
-        this.gameObject.GetComponent<PetStats>().health = 100;
+        this.gameObject.GetComponent<PetStats>().happiness = 100;
         this.gameObject.GetComponent<PetStats>().UpdateStats();
-   
+      
 
     }
-
-
 
 }
