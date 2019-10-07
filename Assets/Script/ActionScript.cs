@@ -4,19 +4,14 @@ using UnityEngine;
 
 public class ActionScript : MonoBehaviour
 {
-    public bool isTouched;
-
     public SpriteRenderer sprite;
+    public bool isTouched;
 
 
     public void Update()
     {
 
-        
-
-
     }
 
-
-
+    
 }
