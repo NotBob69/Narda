@@ -12,6 +12,7 @@ public class PestAi : MonoBehaviour
     public bool isMoving = false;
     public bool isDead = false;
     private float distanceFromTarget;
+    private float distanceFromWaypoint;
 
     //pest movement and direction
     Vector3 direction;
