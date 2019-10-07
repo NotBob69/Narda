@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class PetCleaningScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+
+
+    public void CleanPet()
     {
+        this.gameObject.GetComponent<PetStats>().cleanless = 100;
+        this.gameObject.GetComponent<PetStats>().UpdateStats();
         
+       
+
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

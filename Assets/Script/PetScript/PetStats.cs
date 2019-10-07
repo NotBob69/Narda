@@ -22,8 +22,8 @@ public class PetStats : MonoBehaviour
     void Start()
     {
         tickTimer = baseTick;
-        text.ChangePetStatsTxt(health, cleanless, hunger, happiness);
-        
+        UpdateStats();
+
     }
 
     // Update is called once per frame
@@ -39,13 +39,24 @@ public class PetStats : MonoBehaviour
             CalculateHealth();
             CalculateHappyness();
             tickTimer = baseTick;
+            UpdateStats();
 
-            text.ChangePetStatsTxt(health, cleanless, hunger, happiness);
+
 
         }
 
 
         
+    }
+
+    public void UpdateStats() {
+
+        text.ChangePetStatsTxt(health, cleanless, hunger, happiness);
+
+    }
+    public float StatsAvarge() {
+
+        return (happiness + health + cleanless + hunger) / 4;
     }
 
     private void CalculateHealth() {
@@ -56,6 +67,8 @@ public class PetStats : MonoBehaviour
         health -= (100 - ((hunger + cleanless) / 2))*0.1f;
 
     }
+
+   
 
     private void CalculateHappyness() {
        
