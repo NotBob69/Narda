@@ -9,7 +9,7 @@ public class FeedingScript : MonoBehaviour
     // reikes padaryti kad panaikinti maista 
     public void FeedPet()
     {
-        this.gameObject.GetComponent<PetStats>().hunger = 100;
+        this.gameObject.GetComponent<PetStats>().health = 100;
         this.gameObject.GetComponent<PetStats>().UpdateStats();
    
 
