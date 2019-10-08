@@ -50,17 +50,11 @@ public class PestAi : MonoBehaviour
 
     }
 
-    public void MoveToNewWaypoint()
-    {
-
-    }
-
     public void Update()
     {
 
         if (isMoving)
         {
-
             RotatePest();
         }
 
