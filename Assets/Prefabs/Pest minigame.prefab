@@ -508,7 +508,7 @@ Transform:
   m_Father: {fileID: 3520800903038552967}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4586385715890393438
+--- !u!114 &6884723598542272570
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -517,9 +517,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 8920707865686993528}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab36e136aaa5b9e49aac4aa943d95c1e, type: 3}
+  m_Script: {fileID: 11500000, guid: 60a685ecf8f1f624b85e81a7997eefd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoint:
+  - {fileID: 7827204204766862327}
+  - {fileID: 149512206797776453}
+  - {fileID: 1323314701799832966}
+  - {fileID: 1019468357324071249}
+  - {fileID: 304439821290308189}
+  - {fileID: 7358426620825251328}
+  - {fileID: 4014911317381404941}
+  - {fileID: 4140295396931881979}
 --- !u!1001 &1891495013023757017
 PrefabInstance:
   m_ObjectHideFlags: 0
