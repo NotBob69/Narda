@@ -11,19 +11,26 @@ public class PetStats : MonoBehaviour
     public float hunger = 100;
     public float health = 100;
 
+    // needs to save on player data
+    public float xp = 0;
+    public int currentLevel;
+    public float xpTillNextLevel;
+    private int nextLevel = 2;
+
     public ChangePetText text;
 
     // change to private when done testing
     public float baseTick = 180;
     public float tickTimer;
 
+    private bool changedXp = false;
 
     // Start is called before the first frame update
     void Start()
     {
         tickTimer = baseTick;
         UpdateStats();
-
+        CalculateXp();
     }
 
     // Update is called once per frame
@@ -37,16 +44,15 @@ public class PetStats : MonoBehaviour
             cleanless--;
 
             CalculateHealth();
-            CalculateHappyness();
             tickTimer = baseTick;
             UpdateStats();
-
-
-
+        }
+        if (changedXp)
+        {
+            changedXp = false;
+            CalculateXp();
         }
 
-
-        
     }
 
     public void UpdateStats() {
@@ -68,10 +74,20 @@ public class PetStats : MonoBehaviour
 
     }
 
-   
+    private void CalculateXp() {
+        if (xpTillNextLevel <= xp)
+            currentLevel++;
 
-    private void CalculateHappyness() {
-       
+            xpTillNextLevel = ((nextLevel-1+300*(nextLevel-1)/7)/4);
+    }
+
+    public void _GETXP() {
+
+        xp += 100;
+
+        changedXp = true;
 
     }
+
+
 }

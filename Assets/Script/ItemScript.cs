@@ -7,7 +7,7 @@ public class ItemScript : ScriptableObject
 {
 
     public int itemId;
-  //  public Sprite itemSprite;
+    public Sprite itemSprite;
     public ItemType type;
     public float itemCost;
 
@@ -15,9 +15,8 @@ public class ItemScript : ScriptableObject
     {
         this.itemId = itemId;
         this.type = type;
-   //     itemSprite = sprite;
+       // itemSprite = sprite;
         this.itemCost = itemCost;
-
     }
 
     public enum ItemType { junk, loot, food, cleaning };
