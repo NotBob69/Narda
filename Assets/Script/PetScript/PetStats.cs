@@ -13,7 +13,7 @@ public class PetStats : MonoBehaviour
 
     // needs to save on player data
     public float xp = 0;
-    public int currentLevel;
+    public int currentLevel = 1;
     public float xpTillNextLevel;
     private int nextLevel = 2;
 
@@ -75,15 +75,28 @@ public class PetStats : MonoBehaviour
     }
 
     private void CalculateXp() {
-        if (xpTillNextLevel <= xp)
-            currentLevel++;
 
-            xpTillNextLevel = ((nextLevel-1+300*(nextLevel-1)/7)/4);
+        xpTillNextLevel = (25*nextLevel*(1+nextLevel));
+
+        if (xpTillNextLevel <= xp)
+        {
+            currentLevel++;
+            nextLevel++;
+        }
+
+           
+    }
+
+    public void GiveXp(float ammount) {
+
+        xp += ammount;
+
+        CalculateXp();
     }
 
     public void _GETXP() {
 
-        xp += 100;
+        xp += 10;
 
         changedXp = true;
 

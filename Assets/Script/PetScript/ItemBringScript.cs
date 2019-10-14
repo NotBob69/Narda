@@ -55,6 +55,8 @@ public class ItemBringScript : MonoBehaviour
         if (petStats.health < 50)
             healthItems = true;
 
+
+
         if (statAvg > 50)
         {
             goodItems = true;
