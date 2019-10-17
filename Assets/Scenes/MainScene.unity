@@ -919,8 +919,75 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7223403257994791581, guid: f0e0b7c9806e554458279ed67546fed6,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0.44800162
+      objectReference: {fileID: 0}
+    - target: {fileID: 7223403257994791581, guid: f0e0b7c9806e554458279ed67546fed6,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.8396226
+      objectReference: {fileID: 0}
+    - target: {fileID: 7223403257994791581, guid: f0e0b7c9806e554458279ed67546fed6,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0.31287822
+      objectReference: {fileID: 0}
+    - target: {fileID: 7223403257994791581, guid: f0e0b7c9806e554458279ed67546fed6,
+        type: 3}
+      propertyPath: m_Colors.m_NormalColor.r
+      value: 0.188791
+      objectReference: {fileID: 0}
+    - target: {fileID: 7223403257994791581, guid: f0e0b7c9806e554458279ed67546fed6,
+        type: 3}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 0.8867924
+      objectReference: {fileID: 0}
+    - target: {fileID: 7223403257994791581, guid: f0e0b7c9806e554458279ed67546fed6,
+        type: 3}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 0.14640439
+      objectReference: {fileID: 0}
+    - target: {fileID: 7223403257994791581, guid: f0e0b7c9806e554458279ed67546fed6,
+        type: 3}
+      propertyPath: m_Colors.m_PressedColor.r
+      value: 0.18823531
+      objectReference: {fileID: 0}
+    - target: {fileID: 7223403257994791581, guid: f0e0b7c9806e554458279ed67546fed6,
+        type: 3}
+      propertyPath: m_Colors.m_PressedColor.g
+      value: 0.8862746
+      objectReference: {fileID: 0}
+    - target: {fileID: 7223403257994791581, guid: f0e0b7c9806e554458279ed67546fed6,
+        type: 3}
+      propertyPath: m_Colors.m_PressedColor.b
+      value: 0.14509805
+      objectReference: {fileID: 0}
+    - target: {fileID: 454487062003707669, guid: f0e0b7c9806e554458279ed67546fed6,
+        type: 3}
+      propertyPath: xpBar
+      value: 
+      objectReference: {fileID: 650218218}
+    - target: {fileID: 454487062003707669, guid: f0e0b7c9806e554458279ed67546fed6,
+        type: 3}
+      propertyPath: petStats
+      value: 
+      objectReference: {fileID: 1445245786}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0e0b7c9806e554458279ed67546fed6, type: 3}
+--- !u!114 &650218218 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7223403257994791581, guid: f0e0b7c9806e554458279ed67546fed6,
+    type: 3}
+  m_PrefabInstance: {fileID: 584552405}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &816838430
 GameObject:
   m_ObjectHideFlags: 0
@@ -3368,6 +3435,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1276815183}
   m_CullTransparentMesh: 0
+--- !u!114 &1286274531 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8919350554583396693, guid: f0e0b7c9806e554458279ed67546fed6,
+    type: 3}
+  m_PrefabInstance: {fileID: 584552405}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1327022034
 GameObject:
   m_ObjectHideFlags: 0
@@ -3528,6 +3607,11 @@ PrefabInstance:
       propertyPath: hapinessTxt
       value: 
       objectReference: {fileID: 1570140073}
+    - target: {fileID: 4903251702698426224, guid: fe9c8dc524f950f4ab5d63d4146dcecb,
+        type: 3}
+      propertyPath: levelTxt
+      value: 
+      objectReference: {fileID: 1286274531}
     - target: {fileID: 1788071934838296336, guid: fe9c8dc524f950f4ab5d63d4146dcecb,
         type: 3}
       propertyPath: text
@@ -3556,7 +3640,7 @@ PrefabInstance:
     - target: {fileID: 1636473543508459626, guid: fe9c8dc524f950f4ab5d63d4146dcecb,
         type: 3}
       propertyPath: baseTick
-      value: 5
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe9c8dc524f950f4ab5d63d4146dcecb, type: 3}
@@ -3663,6 +3747,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d494a7d75a35e0c4fb4f5d172d150f75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1445245784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445245781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f304b33fbe3fec4481c096a85852b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  egg: {fileID: 21300000, guid: ecefe90c454e5b74095454a4b9e88ded, type: 3}
+  chicken: {fileID: 21300000, guid: 668c9079f9a671a4cbe5d621133b8bc7, type: 3}
+  cat: {fileID: 21300000, guid: 5c5dbd188cf1d5f47bcd7512f38ff33c, type: 3}
+  raven: {fileID: 21300000, guid: eafaf643a45fc4840af246b91b129356, type: 3}
+  tornado: {fileID: 21300000, guid: 25910ad9d8c3b464db2266ecfe41d4f7, type: 3}
+  serpent: {fileID: 21300000, guid: 957fcbefb2992b344a1b2e7fb4028fae, type: 3}
+  dead: {fileID: 21300000, guid: 522d75d58034587458caf5063b581dc2, type: 3}
 --- !u!114 &1445245785 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4903251702698426224, guid: fe9c8dc524f950f4ab5d63d4146dcecb,
@@ -3836,7 +3939,7 @@ GameObject:
   - component: {fileID: 1683166897}
   m_Layer: 0
   m_Name: Pet placeholder
-  m_TagString: Untagged
+  m_TagString: Pet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3879,7 +3982,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 5c5dbd188cf1d5f47bcd7512f38ff33c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 522d75d58034587458caf5063b581dc2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3916,7 +4019,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eae23327248d244eaf390443af7de4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 1683166894}
   isTouched: 0
 --- !u!65 &1683166897
 BoxCollider:

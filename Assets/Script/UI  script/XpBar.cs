@@ -1,18 +1,44 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class XpBar : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public Slider xpBar;
+    public PetStats petStats;
+
+
+
+
+    private void Start()
     {
+        xpBar.maxValue = petStats.xpTillNextLevel;
+
         
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void LateUpdate()
     {
-        
+        if (petStats.levelUp) {
+            xpBar.maxValue = petStats.xpTillNextLevel;
+            xpBar.value = 0;
+            petStats.levelUp = false;
+
+        }
+
+        if (petStats.gainedXp) {
+            xpBar.value = petStats.xp;
+            petStats.gainedXp = false;
+
+        }
+
     }
+
+
+
+
+
+
 }
