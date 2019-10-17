@@ -48,15 +48,24 @@ public class PestAI2 : MonoBehaviour {
                                                 waypoint[waypointIndex].transform.position,
                                                 moveSpeed * Time.deltaTime);
 
+        transform.LookAt(waypoint[waypointIndex].transform);
+
         if (entered)
         {
-            //waypointIndex += 1;
             waypointIndex = Random.Range(0, waypoint.Length);
+            
+            while (currentWaypoint == waypoint[waypointIndex]) { 
+            
+            waypointIndex = Random.Range(0, waypoint.Length);
+            
+        }
             entered = false;
         }
 
         if (waypointIndex == waypoint.Length)
+        
             waypointIndex = 0;
+        
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -65,6 +74,7 @@ public class PestAI2 : MonoBehaviour {
         if (collision.gameObject.CompareTag("Viewpoint"))
         {
             entered = true;
+            currentWaypoint = collision.transform;
         }
     }
 }
