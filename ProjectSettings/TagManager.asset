@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Pest
   - Viewpoint
+  - Timer
   layers:
   - Default
   - TransparentFX

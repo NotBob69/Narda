@@ -10,8 +10,13 @@ public class PestAI2 : MonoBehaviour {
     public Transform currentWaypoint;
     public int waypointIndex = 0;
 
+    public ActionScript touched;
+
     //get new waypoint
     public bool entered;
+
+    //hit points
+    public int hp = 5;
 
     [SerializeField]
     float moveSpeed = 2f;
@@ -19,6 +24,7 @@ public class PestAI2 : MonoBehaviour {
     void Start()
     {
         Spawn();
+        touched = gameObject.GetComponent<ActionScript>();
        
     }
 
@@ -26,6 +32,20 @@ public class PestAI2 : MonoBehaviour {
     void Update()
     {
         Move();
+
+        if (touched.isTouched)
+        {
+            squash();
+            touched.isTouched = false;
+        }
+    }
+
+    protected void LateUpdate()
+    {
+        //stop the sprite from rotating on a certain axis
+         transform.localEulerAngles = new Vector3(0, 0, transform.localEulerAngles.z);
+        
+        
     }
 
     void Spawn()
@@ -68,13 +88,22 @@ public class PestAI2 : MonoBehaviour {
         
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter(Collider collision)
     {
         Debug.Log("Im a roach");
         if (collision.gameObject.CompareTag("Viewpoint"))
         {
             entered = true;
             currentWaypoint = collision.transform;
+        }
+    }
+
+    public void squash()
+    {
+        hp--;
+        if (hp <= 0)
+        {
+            Destroy(this.gameObject);
         }
     }
 }
