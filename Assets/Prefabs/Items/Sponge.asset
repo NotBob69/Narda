@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb58667705f547bd975cc88881eca, type: 3}
   m_Name: Sponge
   m_EditorClassIdentifier: 
-  itemId: 0
-  itemSprite: {fileID: 0}
-  type: 0
-  itemCost: 0
+  itemId: 2
+  itemSprite: {fileID: 21300000, guid: 6be8b54992d1b8b42964ec205602137c, type: 3}
+  type: 3
+  itemCost: 50

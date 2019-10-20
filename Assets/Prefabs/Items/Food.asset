@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ceb58667705f547bd975cc88881eca, type: 3}
   m_Name: Food
   m_EditorClassIdentifier: 
-  itemId: 0
-  itemSprite: {fileID: 0}
-  type: 0
-  itemCost: 0
+  itemId: 1
+  itemSprite: {fileID: 21300000, guid: 4afe65a1fc49c5747a073fa79ad0cf11, type: 3}
+  type: 2
+  itemCost: 50
