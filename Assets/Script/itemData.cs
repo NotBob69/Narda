@@ -6,12 +6,10 @@ public class itemData : MonoBehaviour
 {
 
     public ItemScript item;
-
-
     public int id;
     public ItemScript.ItemType type;
     public float itemCost;
-    
+
 
 
     // Start is called before the first frame update
@@ -21,12 +19,5 @@ public class itemData : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().sprite = item.itemSprite;
         type = item.type;
         itemCost = item.itemCost;
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

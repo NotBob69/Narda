@@ -10,6 +10,9 @@ public class TimerScript : MonoBehaviour
     float currentTime = 0f;
     float startingTime = 60f;
 
+    //variable to stop timer
+    public bool timeEnd;
+
     //text object variable
     [SerializeField] TextMeshProUGUI countdown;
 
@@ -20,7 +23,16 @@ public class TimerScript : MonoBehaviour
 
     public void Update()
     {
-        currentTime -= 1 * Time.deltaTime;
-        print(currentTime);
+        if (!timeEnd)
+        {
+            currentTime -= 1 * Time.deltaTime;
+            countdown.text = currentTime.ToString();
+
+        }
+        if (currentTime <= 0)
+        {
+            timeEnd = true;
+            countdown.text = 0.ToString();
+        }
     }
 }

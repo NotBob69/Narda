@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PestAI2 : MonoBehaviour { 
+public class PestAI2 : MonoBehaviour
+{
 
     [SerializeField]
     public Transform[] waypoint;
@@ -16,7 +17,7 @@ public class PestAI2 : MonoBehaviour {
     public bool entered;
 
     //hit points
-    public int hp = 5;
+    public int hp;
 
     [SerializeField]
     float moveSpeed = 2f;
@@ -25,7 +26,9 @@ public class PestAI2 : MonoBehaviour {
     {
         Spawn();
         touched = gameObject.GetComponent<ActionScript>();
-       
+
+
+        hp = Random.Range(2, 15);
     }
 
     // Update is called once per frame
@@ -43,16 +46,16 @@ public class PestAI2 : MonoBehaviour {
     protected void LateUpdate()
     {
         //stop the sprite from rotating on a certain axis
-         transform.localEulerAngles = new Vector3(0, 0, transform.localEulerAngles.z);
-        
-        
+        transform.localEulerAngles = new Vector3(0, 0, transform.localEulerAngles.z);
+
+
     }
 
     void Spawn()
     {
         //Choose random spawnpoint
         int spawnpoint = Random.Range(0, waypoint.Length);
-        Debug.Log(waypoint[spawnpoint].position);
+
         this.transform.position = waypoint[spawnpoint].position;
 
         //current location coordinate
@@ -73,19 +76,20 @@ public class PestAI2 : MonoBehaviour {
         if (entered)
         {
             waypointIndex = Random.Range(0, waypoint.Length);
-            
-            while (currentWaypoint == waypoint[waypointIndex]) { 
-            
-            waypointIndex = Random.Range(0, waypoint.Length);
-            
-        }
+
+            while (currentWaypoint == waypoint[waypointIndex])
+            {
+
+                waypointIndex = Random.Range(0, waypoint.Length);
+
+            }
             entered = false;
         }
 
         if (waypointIndex == waypoint.Length)
-        
+
             waypointIndex = 0;
-        
+
     }
 
     public void OnTriggerEnter(Collider collision)
@@ -107,6 +111,3 @@ public class PestAI2 : MonoBehaviour {
         }
     }
 }
-
-    
-

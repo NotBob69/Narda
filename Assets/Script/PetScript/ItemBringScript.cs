@@ -41,31 +41,32 @@ public class ItemBringScript : MonoBehaviour
     {
         // perdaryti sita kai bus item database
        // bool healthItems = false;
+       /*
         bool junkItems = false;
         bool goodItems = false;
         bool healthItems = false;
         bool foodItems = false;
 
-
+    */
         float statAvg = petStats.StatsAvarge();
 
         if (petStats.hunger < 50)
-            foodItems = true;
+     //       foodItems = true;
 
         if (petStats.health < 50)
-            healthItems = true;
+        //    healthItems = true;
 
 
 
         if (statAvg > 50)
         {
-            goodItems = true;
+        //    goodItems = true;
             lootedItems.Add(new ItemScript(itemID,ItemScript.ItemType.loot,100f));
 
         }
         else
         {
-            junkItems = true;
+          //  junkItems = true;
             lootedItems.Add(new ItemScript(itemID, ItemScript.ItemType.junk, 0f)); 
 
         }
