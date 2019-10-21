@@ -11,19 +11,29 @@ public class PetStats : MonoBehaviour
     public float hunger = 100;
     public float health = 100;
 
+    // needs to save on player data
+    public float xp = 0;
+    public int currentLevel = 1;
+    public float xpTillNextLevel;
+    public bool gainedXp = false; // kai duodi xp kad pasikeistu xp bar
+    public bool levelUp = false; // kai pasieki nauja leveli
     public ChangePetText text;
 
     // change to private when done testing
     public float baseTick = 180;
     public float tickTimer;
 
+    private bool changedXp = false;
+    public bool alive = true;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        xpTillNextLevel = (25 * (currentLevel+1) * (1 + (currentLevel + 1)));
         tickTimer = baseTick;
         UpdateStats();
-
+        CalculateXp();
+        text.ChangeText(text.levelTxt, currentLevel);
     }
 
     // Update is called once per frame
@@ -37,16 +47,18 @@ public class PetStats : MonoBehaviour
             cleanless--;
 
             CalculateHealth();
-            CalculateHappyness();
             tickTimer = baseTick;
             UpdateStats();
-
-
-
         }
+        if (changedXp)
+        {
+            gainedXp = true;
+            changedXp = false;
+            CalculateXp();
+        }
+        if (health <= 0)
+            alive = false;
 
-
-        
     }
 
     public void UpdateStats() {
@@ -68,10 +80,36 @@ public class PetStats : MonoBehaviour
 
     }
 
-   
+    private void CalculateXp() {
 
-    private void CalculateHappyness() {
-       
+        if (xpTillNextLevel <= xp)
+        {
+            currentLevel++;
+            text.ChangeText(text.levelTxt, currentLevel);
+
+            xpTillNextLevel = (25 * (currentLevel + 1) * (1 + (currentLevel + 1)));
+            xp = 0;
+            levelUp = true;
+            
+        }
+    }
+
+    public void GiveXp(float ammount) {
+
+        xp += ammount;
+        gainedXp = true;
+        CalculateXp();
+    }
+
+    public void _GETXP() {
+
+        xp += 50;
+
+        changedXp = true;
 
     }
+
+    
+
+
 }

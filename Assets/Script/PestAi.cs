@@ -45,6 +45,7 @@ public class PestAi : MonoBehaviour
             view6,
             view7,
             view8
+
         };
 
     }

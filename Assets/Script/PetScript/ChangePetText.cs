@@ -9,7 +9,7 @@ public class ChangePetText : MonoBehaviour
     public TextMeshProUGUI cleanlessTxt;
     public TextMeshProUGUI hungerTxt;
     public TextMeshProUGUI hapinessTxt;
-
+    public TextMeshProUGUI levelTxt;
 
 
     public void ChangePetStatsTxt(float health, float cleanless, float hunger, float hapiness) {

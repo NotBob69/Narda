@@ -43,8 +43,18 @@ public class ItemBringScript : MonoBehaviour
        // bool healthItems = false;
         bool junkItems = false;
         bool goodItems = false;
+        bool healthItems = false;
+        bool foodItems = false;
+
 
         float statAvg = petStats.StatsAvarge();
+
+        if (petStats.hunger < 50)
+            foodItems = true;
+
+        if (petStats.health < 50)
+            healthItems = true;
+
 
 
         if (statAvg > 50)
@@ -56,7 +66,7 @@ public class ItemBringScript : MonoBehaviour
         else
         {
             junkItems = true;
-            lootedItems.Add(new ItemScript(itemID, ItemScript.ItemType.junk, 0f));
+            lootedItems.Add(new ItemScript(itemID, ItemScript.ItemType.junk, 0f)); 
 
         }
 
