@@ -16,7 +16,7 @@ public class PestAI2 : MonoBehaviour {
     public bool entered;
 
     //hit points
-    public int hp = 5;
+    public int hp;
 
     [SerializeField]
     float moveSpeed = 2f;
@@ -25,7 +25,8 @@ public class PestAI2 : MonoBehaviour {
     {
         Spawn();
         touched = gameObject.GetComponent<ActionScript>();
-       
+
+        hp = Random.Range(2, 15);
     }
 
     // Update is called once per frame
@@ -52,7 +53,7 @@ public class PestAI2 : MonoBehaviour {
     {
         //Choose random spawnpoint
         int spawnpoint = Random.Range(0, waypoint.Length);
-        Debug.Log(waypoint[spawnpoint].position);
+
         this.transform.position = waypoint[spawnpoint].position;
 
         //current location coordinate
