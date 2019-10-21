@@ -26,6 +26,7 @@ public class PestAI2 : MonoBehaviour {
         Spawn();
         touched = gameObject.GetComponent<ActionScript>();
 
+
         hp = Random.Range(2, 15);
     }
 
