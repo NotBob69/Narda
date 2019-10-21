@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PestAI2 : MonoBehaviour { 
+public class PestAI2 : MonoBehaviour
+{
 
     [SerializeField]
     public Transform[] waypoint;
@@ -45,9 +46,9 @@ public class PestAI2 : MonoBehaviour {
     protected void LateUpdate()
     {
         //stop the sprite from rotating on a certain axis
-         transform.localEulerAngles = new Vector3(0, 0, transform.localEulerAngles.z);
-        
-        
+        transform.localEulerAngles = new Vector3(0, 0, transform.localEulerAngles.z);
+
+
     }
 
     void Spawn()
@@ -75,19 +76,20 @@ public class PestAI2 : MonoBehaviour {
         if (entered)
         {
             waypointIndex = Random.Range(0, waypoint.Length);
-            
-            while (currentWaypoint == waypoint[waypointIndex]) { 
-            
-            waypointIndex = Random.Range(0, waypoint.Length);
-            
-        }
+
+            while (currentWaypoint == waypoint[waypointIndex])
+            {
+
+                waypointIndex = Random.Range(0, waypoint.Length);
+
+            }
             entered = false;
         }
 
         if (waypointIndex == waypoint.Length)
-        
+
             waypointIndex = 0;
-        
+
     }
 
     public void OnTriggerEnter(Collider collision)
@@ -109,6 +111,3 @@ public class PestAI2 : MonoBehaviour {
         }
     }
 }
-
-    
-

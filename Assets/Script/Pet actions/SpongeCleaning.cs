@@ -24,6 +24,11 @@ public class SpongeCleaning : MonoBehaviour
             Clean(Input.mousePosition);
 
         }
+
+        if (gameplaymanager.GetComponent<PetStats>().cleanless >= 100)
+        {
+            Destroy(this.gameObject);
+        }
         
 
 
@@ -54,8 +59,22 @@ public class SpongeCleaning : MonoBehaviour
     {
 
         if (other.CompareTag("Pet")) {
-            
+            gameplaymanager.GetComponent<PetStats>().cleanless += 5;
+            gameplaymanager.GetComponent<PetStats>().UpdateStats();
+
+
         }
+
+    }
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Pet"))
+        {
+            gameplaymanager.GetComponent<PetStats>().cleanless += 5;
+            gameplaymanager.GetComponent<PetStats>().UpdateStats();
+
+        }
+
 
     }
 }
