@@ -99,7 +99,6 @@ public class PestAI2 : MonoBehaviour
 
     public void OnTriggerEnter(Collider collision)
     {
-        Debug.Log("Im a roach");
         if (collision.gameObject.CompareTag("Viewpoint"))
         {
             entered = true;
