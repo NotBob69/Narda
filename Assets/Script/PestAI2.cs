@@ -20,7 +20,9 @@ public class PestAI2 : MonoBehaviour
     public int hp;
 
     [SerializeField]
-    float moveSpeed = 2f;
+    //float moveSpeed = 2f;
+    float moveSpeed;
+
 
     void Start()
     {
@@ -67,11 +69,14 @@ public class PestAI2 : MonoBehaviour
 
     private void Move()
     {
+
         transform.position = Vector2.MoveTowards(transform.position,
                                                 waypoint[waypointIndex].transform.position,
                                                 moveSpeed * Time.deltaTime);
 
         transform.LookAt(waypoint[waypointIndex].transform);
+
+        moveSpeed = Random.Range(2, 15);
 
         if (entered)
         {
