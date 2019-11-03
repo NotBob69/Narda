@@ -20,8 +20,8 @@ public class PestAI2 : MonoBehaviour
     public int hp;
 
     [SerializeField]
-    //float moveSpeed = 2f;
-    float moveSpeed;
+    float moveSpeed = 2f;
+    //float moveSpeed;
 
 
     void Start()
@@ -76,7 +76,7 @@ public class PestAI2 : MonoBehaviour
 
         transform.LookAt(waypoint[waypointIndex].transform);
 
-        moveSpeed = Random.Range(2, 15);
+       // moveSpeed = Random.Range(2, 15);
 
         if (entered)
         {
@@ -99,7 +99,6 @@ public class PestAI2 : MonoBehaviour
 
     public void OnTriggerEnter(Collider collision)
     {
-        Debug.Log("Im a roach");
         if (collision.gameObject.CompareTag("Viewpoint"))
         {
             entered = true;
@@ -112,6 +111,7 @@ public class PestAI2 : MonoBehaviour
         hp--;
         if (hp <= 0)
         {
+           
             Destroy(this.gameObject);
         }
     }
