@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GoldKey : MonoBehaviour
 {
-    private Vector3 mousePosition;
-    private bool isUsed;
+
+   
 
    public void Use()
     {
@@ -49,8 +49,22 @@ public class GoldKey : MonoBehaviour
         }
 
 
+        Destroy(this.gameObject);
 
     }
+
+    public void OnTriggerEnter(Collider other)
+    {
+
+        if (other.CompareTag("Chest"))
+        {
+            IsUsed();
+
+
+        }
+
+    }
+
 
 
 }
