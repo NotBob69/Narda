@@ -7,6 +7,8 @@ TagManager:
   - Pest
   - Viewpoint
   - Pet
+  - GoldKey
+  - Chest
   layers:
   - Default
   - TransparentFX
