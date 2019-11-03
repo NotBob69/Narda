@@ -5,7 +5,7 @@ using UnityEngine;
 public class GoldKey : MonoBehaviour
 {
 
-   
+    private Vector3 mousePosition;
 
    public void Use()
     {
