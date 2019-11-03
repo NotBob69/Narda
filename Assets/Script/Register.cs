@@ -24,25 +24,28 @@ public class Register : MonoBehaviour{
 
     public void RegisterButton()
     {
+
         bool UN = false;
         bool PW = false;
         bool CPW = false;
 
         if (Username != "")
         {
-            if (!System.IO.File.Exists(@"C:\Users\PC\Desktop\UnityLogin\" + Username + ".txt"))
+            UN = true;
+           /* if (!System.IO.File.Exists(@"C:\Users\PC\Desktop\UnityLogin\" + Username + ".txt"))
             {
                 UN = true;
             }
             else
             {
                 Debug.LogWarning("Username Taken");
-            }
+            }*/
         }
         else
         {
             Debug.LogWarning("Username field Empty");
         }
+
         if (Password != "")
         {
             if(Password.Length > 5)
@@ -58,6 +61,7 @@ public class Register : MonoBehaviour{
         {
             Debug.LogWarning("Password Field Empty");
         }
+
         if(ConfPassword != "")
         {
             if (ConfPassword == Password)
@@ -73,10 +77,29 @@ public class Register : MonoBehaviour{
         {
             Debug.LogWarning("Confirm Password Field Empty");
         }
+
         if(UN == true&&PW == true&&CPW == true)
         {
-            form = (Username + "\n" + Password);
-            System.IO.File.WriteAllText(@"C:\Users\PC\Desktop\UnityLogin\" + Username + ".txt", form);
+            auth.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWith(task => {
+                if (task.IsCanceled)
+                {
+                    Debug.LogError("CreateUserWithEmailAndPasswordAsync was canceled.");
+                    return;
+                }
+                if (task.IsFaulted)
+                {
+                    Debug.LogError("CreateUserWithEmailAndPasswordAsync encountered an error: " + task.Exception);
+                    return;
+                }
+
+                // Firebase user has been created.
+                Firebase.Auth.FirebaseUser newUser = task.Result;
+                Debug.LogFormat("Firebase user created successfully: {0} ({1})",
+                    newUser.DisplayName, newUser.UserId);
+            });
+
+            //form = (Username + "\n" + Password);
+            //System.IO.File.WriteAllText(@"C:\Users\PC\Desktop\UnityLogin\" + Username + ".txt", form);
             username.GetComponent<InputField>().text = "";
             password.GetComponent<InputField>().text = "";
             confPassword.GetComponent<InputField>().text = "";
