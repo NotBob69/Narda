@@ -5,7 +5,7 @@ using UnityEngine;
 public class GoldKey : MonoBehaviour
 {
 
-    private bool isUsed;
+   
 
    public void Use()
     {
@@ -14,10 +14,22 @@ public class GoldKey : MonoBehaviour
 
     public void IsUsed()
     {
-        GameObject go = GameObject.FindGameObjectWithTag("GoldKey");
-        Destroy(go.gameObject);
+        Destroy(this.gameObject);
 
     }
+
+    public void OnTriggerEnter(Collider other)
+    {
+
+        if (other.CompareTag("Chest"))
+        {
+            IsUsed();
+
+
+        }
+
+    }
+
 
 
 }
