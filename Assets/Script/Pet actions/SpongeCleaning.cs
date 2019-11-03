@@ -27,7 +27,6 @@ public class SpongeCleaning : MonoBehaviour
 
         if (gameplaymanager.GetComponent<PetStats>().cleanless >= 100)
         {
-            gameplaymanager.GetComponent<PetStats>().GiveXp(50);
             Destroy(this.gameObject);
         }
         
