@@ -23,7 +23,7 @@ public class Chest : MonoBehaviour
 
     }
 
-    public void ItemInside()
+    public void closed()
     {
 
     }
