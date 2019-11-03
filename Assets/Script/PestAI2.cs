@@ -111,6 +111,7 @@ public class PestAI2 : MonoBehaviour
         hp--;
         if (hp <= 0)
         {
+           
             Destroy(this.gameObject);
         }
     }
