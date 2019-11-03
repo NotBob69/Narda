@@ -14,13 +14,15 @@ public class Register : MonoBehaviour{
     private string ConfPassword;
     private string form;
 
- 
+    User user = new User();
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public static string playerName;
+    private string idToken;
+    public static string localId;
+
+    private string databaseURL = "";
+    private string AuthKey = "AIzaSyA4qw-_jK2rRXqNI_LO5DVP8X_Xvgagnyo";
+
 
     public void RegisterButton()
     {
@@ -80,7 +82,7 @@ public class Register : MonoBehaviour{
 
         if(UN == true&&PW == true&&CPW == true)
         {
-            auth.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWith(task => {
+            /*auth.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWith(task => {
                 if (task.IsCanceled)
                 {
                     Debug.LogError("CreateUserWithEmailAndPasswordAsync was canceled.");
@@ -99,7 +101,7 @@ public class Register : MonoBehaviour{
             });
 
             //form = (Username + "\n" + Password);
-            //System.IO.File.WriteAllText(@"C:\Users\PC\Desktop\UnityLogin\" + Username + ".txt", form);
+            //System.IO.File.WriteAllText(@"C:\Users\PC\Desktop\UnityLogin\" + Username + ".txt", form);*/
             username.GetComponent<InputField>().text = "";
             password.GetComponent<InputField>().text = "";
             confPassword.GetComponent<InputField>().text = "";
@@ -107,6 +109,32 @@ public class Register : MonoBehaviour{
         }
     }
 
+    private void PostToDatabase(bool emptyScore = false)
+    {
+        Username user = new Username();
+
+        if (emptyScore)
+        {
+            user.userScore = 0;
+        }
+
+        RestClient.Put(""+ localId + ".json", user);
+    }
+
+    private void SignUpUser(String email, string username, string password)
+    {
+        string userData = "(\"email\":\"" + email + "\",\"password\":\"" + password + "\",\"returnSecureToken\":true)";
+        RestClient.Post<SignResponse>("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key="+ AuthKey, userData).Then(
+            response =>
+        {
+            idToken = response.idToken;
+            localId = response.localId;
+            PostToDatabase(true);
+        }).Catch(error =>
+        {
+            Debug.Log(error);
+        });
+    }
     // Update is called once per frame
     void Update()
     {
