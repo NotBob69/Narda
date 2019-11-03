@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using System.Text.RegularExpressions;
+using Proyecto26;
 
 public class Register : MonoBehaviour{
     public GameObject username;
@@ -20,7 +21,7 @@ public class Register : MonoBehaviour{
     private string idToken;
     public static string localId;
 
-    private string databaseURL = "";
+    private string databaseURL = "https://narda-8a665.firebaseio.com/users/";
     private string AuthKey = "AIzaSyA4qw-_jK2rRXqNI_LO5DVP8X_Xvgagnyo";
 
 
