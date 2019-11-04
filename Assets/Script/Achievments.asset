@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72a5d5be6fe4c9349a25cd6211e709f2, type: 3}
+  m_Name: Achievments
+  m_EditorClassIdentifier: 
+  achievmentList:
+    array:
+    - id: Dieded
+      description: Let your pet die
+      achievmentSprite: {fileID: 21300000, guid: cef8859ee64bd734a88a702f6a00471c,
+        type: 3}
+      aStatus: 0
+      aShown: 0
+    - id: Exterminate
+      description: Kill 100 pests
+      achievmentSprite: {fileID: 21300000, guid: cad69e2a60f776047926c549aebe3943,
+        type: 3}
+      aStatus: 0
+      aShown: 0
+    - id: Metamorphosis
+      description: Unlock all pet forms
+      achievmentSprite: {fileID: 21300000, guid: 391e62d49e2798c468501cd753887979,
+        type: 3}
+      aStatus: 0
+      aShown: 0
+    - id: Whiping your mistakes
+      description: Try to clean your pet when he is dead
+      achievmentSprite: {fileID: 21300000, guid: bfc7953ae11c0a24397837333a8e3a2a,
+        type: 3}
+      aStatus: 0
+      aShown: 0
+    - id: The tapper
+      description: Tapp on your pet 100 times
+      achievmentSprite: {fileID: 21300000, guid: 1933efd9d60dfeb45b05f79ed8fbbe19,
+        type: 3}
+      aStatus: 0
+      aShown: 0
+    - id: Its somthing
+      description: Reach pet level 3
+      achievmentSprite: {fileID: 21300000, guid: 5499a01bb0c8584468b27bb5ffbfd02c,
+        type: 3}
+      aStatus: 0
+      aShown: 0
+    - id: So far so good
+      description: Keep you pet alive for 30 days
+      achievmentSprite: {fileID: 21300000, guid: a0532b2f0fb42ea419428670c49588d4,
+        type: 3}
+      aStatus: 0
+      aShown: 0
+    - id: Staying alive
+      description: Keep you pet alive for 100 days
+      achievmentSprite: {fileID: 21300000, guid: e4eae3a6f106b704e85e322c4f6a608a,
+        type: 3}
+      aStatus: 0
+      aShown: 0
