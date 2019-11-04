@@ -110,21 +110,26 @@ public class Register : MonoBehaviour{
         }
     }
 
+    public void SignUpUserButton()
+    {
+        SignUpUser(Username, Password);
+    }
+
     private void PostToDatabase(bool emptyScore = false)
     {
-        Username user = new Username();
+        User user = new User();
 
         if (emptyScore)
         {
             user.userScore = 0;
         }
 
-        RestClient.Put(""+ localId + ".json", user);
+        RestClient.Put(databaseURL + "/" + localId + ".json?auth=" + idToken, user);
     }
 
-    private void SignUpUser(String email, string username, string password)
+    private void SignUpUser(string username, string password)
     {
-        string userData = "(\"email\":\"" + email + "\",\"password\":\"" + password + "\",\"returnSecureToken\":true)";
+        string userData = "(\"username\":\"" + username + "\",\"password\":\"" + password + "\",\"returnSecureToken\":true)";
         RestClient.Post<SignResponse>("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key="+ AuthKey, userData).Then(
             response =>
         {

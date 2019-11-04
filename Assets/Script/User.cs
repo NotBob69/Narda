@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class User
 {
+    public int userScore;
     public string userName;
     public string localId;
     public User()
