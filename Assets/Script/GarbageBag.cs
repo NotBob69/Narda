@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GarbageBag : MonoBehaviour
 {
+    public GameObject garbageBag;
+
     [SerializeField]
     public Transform[] spawnpoint;
     public Transform currentTrashWaypoint;
@@ -20,10 +22,10 @@ public class GarbageBag : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        id = item.itemId;
-        gameObject.GetComponent<SpriteRenderer>().sprite = item.itemSprite;
-        type = item.type;
-        itemCost = item.itemCost;
+       // id = item.itemId;
+       // gameObject.GetComponent<SpriteRenderer>().sprite = item.itemSprite;
+       // type = item.type;
+       // itemCost = item.itemCost;
 
         Spawn();
         touched = gameObject.GetComponent<ActionScript>();
@@ -44,15 +46,22 @@ public class GarbageBag : MonoBehaviour
     void Spawn()
     {
         //Choose random spawnpoint
-        int spawn = Random.Range(0, spawnpoint.Length);
+          int spawn = Random.Range(0, spawnpoint.Length);
 
-        this.transform.position = spawnpoint[spawn].position;
+          this.transform.position = spawnpoint[spawn].position;
 
         //current location coordinate
-        currentTrashWaypoint = spawnpoint[spawn];
+           currentTrashWaypoint = spawnpoint[spawn];
 
 
-        transform.position = spawnpoint[spawn].transform.position;
+          transform.position = spawnpoint[spawn].transform.position;
+
+      //  int bag = Random.Range(4, 10);
+
+     //   for (int i = 0; i < bag; i++ )
+     //   {
+     //       Instantiate(garbageBag, spawnpoint[Random.Range(0, spawnpoint.Length)].position, new Quaternion(0,0,0,0));
+     //   }
     }
 
     public void Clean()
@@ -64,4 +73,6 @@ public class GarbageBag : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    
 }
