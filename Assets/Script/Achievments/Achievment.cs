@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Achievment : ScriptableObject
+[System.Serializable]
+public class Achievment
 {
 
     public string id;
-    string aName;
-    
+    public string description;
+    public Sprite achievmentSprite;
+    public bool aStatus;
+    public bool aShown;
 
 
 

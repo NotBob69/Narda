@@ -19,6 +19,9 @@ public class PetStats : MonoBehaviour
     public bool levelUp = false; // kai pasieki nauja leveli
     public ChangePetText text;
 
+
+    public int pestKilled = 0;
+
     // change to private when done testing
     public float baseTick = 180;
     public float tickTimer;
