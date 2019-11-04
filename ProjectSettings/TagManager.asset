@@ -9,6 +9,8 @@ TagManager:
   - Pet
   - GoldKey
   - Chest
+  - GarbageBag
+  - Spawnpoint
   layers:
   - Default
   - TransparentFX
