@@ -7,6 +7,10 @@ TagManager:
   - Pest
   - Viewpoint
   - Pet
+  - GoldKey
+  - Chest
+  - GarbageBag
+  - Spawnpoint
   layers:
   - Default
   - TransparentFX
