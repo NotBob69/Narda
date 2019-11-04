@@ -115,8 +115,10 @@ public class PestAI2 : MonoBehaviour
         hp--;
         if (hp <= 0)
         {
+
 			FindObjectOfType<AudioManager>().Play("kill_pest");
 			FindObjectOfType<AudioManager>().Stop("pest_minigame");
+
 
             Destroy(this.gameObject);
         }

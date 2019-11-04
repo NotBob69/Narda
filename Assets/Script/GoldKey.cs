@@ -49,7 +49,7 @@ public class GoldKey : MonoBehaviour
         }
 
 
-        Destroy(this.gameObject);
+      
 
     }
 

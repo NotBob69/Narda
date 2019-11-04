@@ -7,9 +7,11 @@ using System.Text.RegularExpressions;
 using Proyecto26;
 
 public class Register : MonoBehaviour{
+    public GameObject email;
     public GameObject username;
     public GameObject password;
     public GameObject confPassword;
+    private string Email;
     private string Username;
     private string Password;
     private string ConfPassword;
@@ -20,8 +22,9 @@ public class Register : MonoBehaviour{
     public static string playerName;
     private string idToken;
     public static string localId;
+    private string getLocalId;
 
-    private string databaseURL = "https://narda-8a665.firebaseio.com/users/";
+    private string databaseURL = "https://narda-8a665.firebaseio.com/users";
     private string AuthKey = "AIzaSyA4qw-_jK2rRXqNI_LO5DVP8X_Xvgagnyo";
 
 
@@ -103,41 +106,44 @@ public class Register : MonoBehaviour{
 
             //form = (Username + "\n" + Password);
             //System.IO.File.WriteAllText(@"C:\Users\PC\Desktop\UnityLogin\" + Username + ".txt", form);*/
+            email.GetComponent<InputField>().text = "";
             username.GetComponent<InputField>().text = "";
             password.GetComponent<InputField>().text = "";
             confPassword.GetComponent<InputField>().text = "";
+            SignUpUserButton();
             print("Registration Sucessful");
         }
     }
 
     public void SignUpUserButton()
     {
-        SignUpUser(Username, Password);
+        SignUpUser(Email, Username, Password);
     }
 
-    private void PostToDatabase(bool emptyScore = false)
+    private void PostToDatabase()
     {
-        User user = new User();
-
-        if (emptyScore)
-        {
-            user.userScore = 0;
-        }
 
         RestClient.Put(databaseURL + "/" + localId + ".json?auth=" + idToken, user);
     }
 
-    private void SignUpUser(string username, string password)
+    private void SignUpUser(string email, string username, string password)
     {
-        string userData = "(\"username\":\"" + username + "\",\"password\":\"" + password + "\",\"returnSecureToken\":true)";
-        RestClient.Post<SignResponse>("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key="+ AuthKey, userData).Then(
+
+       /* System.Threading.Tasks.Task<FirebaseUser> CreateUserWithEmailAndPasswordAsync(
+         string email,
+         string password
+        );*/
+        string userData = "(\"email\":\"" + email + "\",\"password\":\"" + password + "\",\"returnSecureToken\":true)";
+        RestClient.Post<SignResponse>("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=" + AuthKey, userData).Then(
             response =>
         {
+            Debug.Log("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=" + AuthKey);
             idToken = response.idToken;
             localId = response.localId;
-            PostToDatabase(true);
+            PostToDatabase();
         }).Catch(error =>
         {
+            Debug.Log("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=" + AuthKey);
             Debug.Log(error);
         });
     }
@@ -151,6 +157,7 @@ public class Register : MonoBehaviour{
                 RegisterButton();
             }
         }
+        Email = email.GetComponent<InputField>().text;
         Username = username.GetComponent<InputField>().text;
         Password = password.GetComponent<InputField>().text;
         ConfPassword = confPassword.GetComponent<InputField>().text;
