@@ -23,7 +23,7 @@ public class PetStats : MonoBehaviour
     public int pestKilled = 0;
     public bool haveReachedMax;
     public bool haveDied;
-    public bool cleaningDead;
+    public bool cleaningDead= false;
     public int petTapping=0;
 
 

@@ -19,15 +19,34 @@ public class AchievmentController : MonoBehaviour
 
     private void Update()
     {
-
+        /*
         Dieded();
         Exterminate();
         Metamorphosis();
-        CleaningYuorMistakes();
+        CleaningYourMistakes();
         Tapper();
         ItsSomthing();
+        Debug.Log("hi");
         //6 achievments
-        
+        */
+
+        if (petStats.health <= 0)
+            CompleteAchievment(list.achievmentList[0]);
+
+        if (petStats.pestKilled >= 100)
+            CompleteAchievment(list.achievmentList[1]);
+
+        if (petStats.haveReachedMax && petStats.haveDied)
+            CompleteAchievment(list.achievmentList[2]);
+
+        if (petStats.cleaningDead)
+            CompleteAchievment(list.achievmentList[3]);
+
+        if (petStats.petTapping >= 100)
+            CompleteAchievment(list.achievmentList[4]);
+
+        if (petStats.currentLevel >= 3)
+            CompleteAchievment(list.achievmentList[5]);
 
     }
     public bool StatusCheck(int number) {
@@ -46,6 +65,7 @@ public class AchievmentController : MonoBehaviour
         if (petStats.health <= 0)
             CompleteAchievment(list.achievmentList[0]);
     }
+
     public void Exterminate() {
 
         if (StatusCheck(1))
@@ -62,12 +82,14 @@ public class AchievmentController : MonoBehaviour
         if (petStats.haveReachedMax && petStats.haveDied)
             CompleteAchievment(list.achievmentList[2]);
     }
-    public void CleaningYuorMistakes() {
+    public void CleaningYourMistakes() {
+
         if (StatusCheck(3))
             return;
 
         if (petStats.cleaningDead)
             CompleteAchievment(list.achievmentList[3]);
+
     }
     public void Tapper()
     {
@@ -96,7 +118,10 @@ public class AchievmentController : MonoBehaviour
     public void CompleteAchievment(Achievment achievment) {
 
         achievment.aStatus = true;
-        popUp.PlayAnim(achievment);
+
+        if (!achievment.aShown)
+           popUp.PlayAnim(achievment);
+
         achievment.aShown = true;
     }
 
