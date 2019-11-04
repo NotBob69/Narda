@@ -19,8 +19,10 @@ public class PetStats : MonoBehaviour
     public bool levelUp = false; // kai pasieki nauja leveli
     public ChangePetText text;
 
-
+    // achievment stats
     public int pestKilled = 0;
+    public bool haveReachedMax;
+    public bool haveDied;
 
     // change to private when done testing
     public float baseTick = 180;
@@ -60,7 +62,12 @@ public class PetStats : MonoBehaviour
             CalculateXp();
         }
         if (health <= 0)
+        {
             alive = false;
+            haveDied = true;
+        }
+        if (currentLevel == 15)
+            haveReachedMax = true;
 
     }
 

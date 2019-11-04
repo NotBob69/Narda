@@ -11,9 +11,14 @@ public class AchievmentController : MonoBehaviour
     public bool test;
 
 
+
+    private PetStats petStats;
+
+
     public void Start()
     {
         gameplayManager = GameObject.Find("Gameplay manager");
+        petStats = gameplayManager.GetComponent<PetStats>();
     }
 
 
@@ -37,17 +42,24 @@ public class AchievmentController : MonoBehaviour
         if (StatusCheck(0))
             return;
 
-        if (gameplayManager.GetComponent<PetStats>().health <= 0)
+        if (petStats.health <= 0)
             CompleteAchievment(list.achievmentList[0]);
     }
     public void Exterminate() {
 
-        if (StatusCheck(3))
+        if (StatusCheck(1))
             return;
 
-        if (gameplayManager.GetComponent<PetStats>().pestKilled >= 100)
-            CompleteAchievment(list.achievmentList[3]);
+        if (petStats.pestKilled >= 100)
+            CompleteAchievment(list.achievmentList[1]);
 
+    }
+    public void Metamorphosis() {
+        if (StatusCheck(2))
+            return;
+
+        if (petStats.haveReachedMax && petStats.haveDied)
+            CompleteAchievment(list.achievmentList[2]);
     }
 
 

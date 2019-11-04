@@ -3398,7 +3398,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa86b5e02c373d4798adb8f5880914f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
+  anim: {fileID: 1040610111}
+  image: {fileID: 1947286924}
+  aNameText: {fileID: 697837560}
+  aDescription: {fileID: 796726394}
 --- !u!95 &1040610111
 Animator:
   serializedVersion: 3
@@ -7400,6 +7403,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 1117834329}
   slotholder: {fileID: 1499403995}
+--- !u!114 &1445245792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445245781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7039752710f2d2741ae4d2752945329a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  list: {fileID: 11400000, guid: 096efb5d8649f044ca3a74842594de71, type: 2}
+  popUp: {fileID: 1040610110}
+  gameplayManager: {fileID: 0}
+  test: 0
 --- !u!1 &1475487853 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5036425159086587318, guid: f90a3cb51bcf3fc4f94e8d61f5b6312e,
