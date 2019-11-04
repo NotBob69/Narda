@@ -23,6 +23,9 @@ public class PetStats : MonoBehaviour
     public int pestKilled = 0;
     public bool haveReachedMax;
     public bool haveDied;
+    public bool cleaningDead;
+    public int petTapping=0;
+
 
     // change to private when done testing
     public float baseTick = 180;

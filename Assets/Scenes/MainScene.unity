@@ -8051,6 +8051,7 @@ GameObject:
   - component: {fileID: 1683166895}
   - component: {fileID: 1683166894}
   - component: {fileID: 1683166896}
+  - component: {fileID: 1683166898}
   - component: {fileID: 1683166897}
   m_Layer: 0
   m_Name: Pet placeholder
@@ -8148,6 +8149,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.7300003, y: 4.0000005, z: 0.20000003}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1683166898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683166893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92538df20b28b924fb1467392e3a0d40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1683443316 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5390830896278006181, guid: f90a3cb51bcf3fc4f94e8d61f5b6312e,

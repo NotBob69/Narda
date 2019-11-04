@@ -7,25 +7,26 @@ public class AchievmentController : MonoBehaviour
 
     public AchievmentList list;
     public AchievmentPopUp popUp;
-    public GameObject gameplayManager;
-    public bool test;
-
-
 
     private PetStats petStats;
 
 
     public void Start()
     {
-        gameplayManager = GameObject.Find("Gameplay manager");
-        petStats = gameplayManager.GetComponent<PetStats>();
+        petStats = GameObject.Find("Gameplay manager").GetComponent<PetStats>();
     }
 
 
     private void Update()
     {
-        if (test)
-            CompleteAchievment(list.achievmentList[0]);
+
+        Dieded();
+        Exterminate();
+        Metamorphosis();
+        CleaningYuorMistakes();
+        Tapper();
+        ItsSomthing();
+        //6 achievments
         
 
     }
@@ -60,6 +61,33 @@ public class AchievmentController : MonoBehaviour
 
         if (petStats.haveReachedMax && petStats.haveDied)
             CompleteAchievment(list.achievmentList[2]);
+    }
+    public void CleaningYuorMistakes() {
+        if (StatusCheck(3))
+            return;
+
+        if (petStats.cleaningDead)
+            CompleteAchievment(list.achievmentList[3]);
+    }
+    public void Tapper()
+    {
+        if (StatusCheck(4))
+            return;
+
+        if (petStats.petTapping >= 100)
+            CompleteAchievment(list.achievmentList[4]);
+
+
+    }
+    public void ItsSomthing() {
+        if (StatusCheck(5))
+            return;
+
+        if (petStats.currentLevel >= 3)
+            CompleteAchievment(list.achievmentList[5]);
+
+
+
     }
 
 
