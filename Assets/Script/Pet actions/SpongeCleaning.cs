@@ -64,8 +64,6 @@ public class SpongeCleaning : MonoBehaviour
             gameplaymanager.GetComponent<PetStats>().cleanless += 5;
             gameplaymanager.GetComponent<PetStats>().UpdateStats();
 
-            if (gameObject.GetComponent<PetStats>().health <= 0)
-                gameObject.GetComponent<PetStats>().cleaningDead = true;
 
         }
 
