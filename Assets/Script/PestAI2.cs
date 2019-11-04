@@ -12,6 +12,7 @@ public class PestAI2 : MonoBehaviour
     public int waypointIndex = 0;
 
     public ActionScript touched;
+    public PetStats stats;
 
     //get new waypoint
     public bool entered;
@@ -29,6 +30,7 @@ public class PestAI2 : MonoBehaviour
         Spawn();
         touched = gameObject.GetComponent<ActionScript>();
 
+        stats = GameObject.Find("Gameplay manager").GetComponent<PetStats>();
 
         hp = Random.Range(2, 15);
     }
@@ -40,7 +42,7 @@ public class PestAI2 : MonoBehaviour
 
         if (touched.isTouched)
         {
-            squash();
+            Squash();
             touched.isTouched = false;
         }
     }
@@ -106,12 +108,12 @@ public class PestAI2 : MonoBehaviour
         }
     }
 
-    public void squash()
+    public void Squash()
     {
         hp--;
         if (hp <= 0)
         {
-           
+            stats.pestKilled++;
             Destroy(this.gameObject);
         }
     }
