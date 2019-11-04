@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BikeItem : MonoBehaviour
+public class Sandwich : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -15,7 +15,7 @@ public class BikeItem : MonoBehaviour
     {
         if (gameObject.GetComponent<ActionScript>().isTouched)
         {
-            GameObject.Find("Gameplay manager").GetComponent<PetStats>().happiness += 5;
+            GameObject.Find("Gameplay manager").GetComponent<PetStats>().hunger += 10;
         }
     }
 }

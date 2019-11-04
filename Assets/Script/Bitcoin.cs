@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BikeItem : MonoBehaviour
+public class Bitcoin : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
