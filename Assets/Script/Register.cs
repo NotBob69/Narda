@@ -128,15 +128,22 @@ public class Register : MonoBehaviour{
 
     private void SignUpUser(string email, string username, string password)
     {
+
+       /* System.Threading.Tasks.Task<FirebaseUser> CreateUserWithEmailAndPasswordAsync(
+         string email,
+         string password
+        );*/
         string userData = "(\"email\":\"" + email + "\",\"password\":\"" + password + "\",\"returnSecureToken\":true)";
-        RestClient.Post<SignResponse>("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key="+ AuthKey, userData).Then(
+        RestClient.Post<SignResponse>("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=" + AuthKey, userData).Then(
             response =>
         {
+            Debug.Log("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=" + AuthKey);
             idToken = response.idToken;
             localId = response.localId;
             PostToDatabase();
         }).Catch(error =>
         {
+            Debug.Log("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=" + AuthKey);
             Debug.Log(error);
         });
     }
