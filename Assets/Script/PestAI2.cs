@@ -40,6 +40,10 @@ public class PestAI2 : MonoBehaviour
 
         if (touched.isTouched)
         {
+			FindObjectOfType<AudioManager>().Play("pest_crush");
+
+			FindObjectOfType<AudioManager>().Play("pest_minigame");
+
             squash();
             touched.isTouched = false;
         }
@@ -111,6 +115,9 @@ public class PestAI2 : MonoBehaviour
         hp--;
         if (hp <= 0)
         {
+			FindObjectOfType<AudioManager>().Play("kill_pest");
+			FindObjectOfType<AudioManager>().Stop("pest_minigame");
+
             Destroy(this.gameObject);
         }
     }

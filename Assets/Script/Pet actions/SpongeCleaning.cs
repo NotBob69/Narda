@@ -10,6 +10,7 @@ public class SpongeCleaning : MonoBehaviour
 
     private void Start()
     {
+		
         gameplaymanager = GameObject.Find("Gameplay manager");
         
     }
@@ -43,6 +44,7 @@ public class SpongeCleaning : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(v3);
         if (Physics.Raycast(ray, out hit))
         {
+			FindObjectOfType<AudioManager>().Play("cleaning_pet");
 
             mousePosition = Input.mousePosition;
             mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, 10));
