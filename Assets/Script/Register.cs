@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using System.Text.RegularExpressions;
+using Proyecto26;
 
 public class Register : MonoBehaviour{
     public GameObject username;
@@ -14,35 +15,40 @@ public class Register : MonoBehaviour{
     private string ConfPassword;
     private string form;
 
- 
+    User user = new User();
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public static string playerName;
+    private string idToken;
+    public static string localId;
+
+    private string databaseURL = "https://narda-8a665.firebaseio.com/users/";
+    private string AuthKey = "AIzaSyA4qw-_jK2rRXqNI_LO5DVP8X_Xvgagnyo";
+
 
     public void RegisterButton()
     {
+
         bool UN = false;
         bool PW = false;
         bool CPW = false;
 
         if (Username != "")
         {
-            if (!System.IO.File.Exists(@"C:\Users\PC\Desktop\UnityLogin\" + Username + ".txt"))
+            UN = true;
+           /* if (!System.IO.File.Exists(@"C:\Users\PC\Desktop\UnityLogin\" + Username + ".txt"))
             {
                 UN = true;
             }
             else
             {
                 Debug.LogWarning("Username Taken");
-            }
+            }*/
         }
         else
         {
             Debug.LogWarning("Username field Empty");
         }
+
         if (Password != "")
         {
             if(Password.Length > 5)
@@ -58,6 +64,7 @@ public class Register : MonoBehaviour{
         {
             Debug.LogWarning("Password Field Empty");
         }
+
         if(ConfPassword != "")
         {
             if (ConfPassword == Password)
@@ -73,10 +80,29 @@ public class Register : MonoBehaviour{
         {
             Debug.LogWarning("Confirm Password Field Empty");
         }
+
         if(UN == true&&PW == true&&CPW == true)
         {
-            form = (Username + "\n" + Password);
-            System.IO.File.WriteAllText(@"C:\Users\PC\Desktop\UnityLogin\" + Username + ".txt", form);
+            /*auth.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWith(task => {
+                if (task.IsCanceled)
+                {
+                    Debug.LogError("CreateUserWithEmailAndPasswordAsync was canceled.");
+                    return;
+                }
+                if (task.IsFaulted)
+                {
+                    Debug.LogError("CreateUserWithEmailAndPasswordAsync encountered an error: " + task.Exception);
+                    return;
+                }
+
+                // Firebase user has been created.
+                Firebase.Auth.FirebaseUser newUser = task.Result;
+                Debug.LogFormat("Firebase user created successfully: {0} ({1})",
+                    newUser.DisplayName, newUser.UserId);
+            });
+
+            //form = (Username + "\n" + Password);
+            //System.IO.File.WriteAllText(@"C:\Users\PC\Desktop\UnityLogin\" + Username + ".txt", form);*/
             username.GetComponent<InputField>().text = "";
             password.GetComponent<InputField>().text = "";
             confPassword.GetComponent<InputField>().text = "";
@@ -84,6 +110,37 @@ public class Register : MonoBehaviour{
         }
     }
 
+    public void SignUpUserButton()
+    {
+        SignUpUser(Username, Password);
+    }
+
+    private void PostToDatabase(bool emptyScore = false)
+    {
+        User user = new User();
+
+        if (emptyScore)
+        {
+            user.userScore = 0;
+        }
+
+        RestClient.Put(databaseURL + "/" + localId + ".json?auth=" + idToken, user);
+    }
+
+    private void SignUpUser(string username, string password)
+    {
+        string userData = "(\"username\":\"" + username + "\",\"password\":\"" + password + "\",\"returnSecureToken\":true)";
+        RestClient.Post<SignResponse>("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key="+ AuthKey, userData).Then(
+            response =>
+        {
+            idToken = response.idToken;
+            localId = response.localId;
+            PostToDatabase(true);
+        }).Catch(error =>
+        {
+            Debug.Log(error);
+        });
+    }
     // Update is called once per frame
     void Update()
     {
