@@ -15,7 +15,10 @@ public class BikeItem : MonoBehaviour
     {
         if (gameObject.GetComponent<ActionScript>().isTouched)
         {
+            Debug.Log("pressed");
             GameObject.Find("Gameplay manager").GetComponent<PetStats>().happiness += 5;
+            GameObject.Find("Gameplay manager").GetComponent<PetStats>().UpdateStats();
+            gameObject.GetComponent<ActionScript>().isTouched = false;
         }
     }
 }

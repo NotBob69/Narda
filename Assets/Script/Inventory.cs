@@ -24,7 +24,7 @@ public class Inventory : MonoBehaviour
         }
         
     }
-
+    /*
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.I))
@@ -36,5 +36,5 @@ public class Inventory : MonoBehaviour
         } else{
             inventory.SetActive(false);
         }
-    }
+    }*/
 }
