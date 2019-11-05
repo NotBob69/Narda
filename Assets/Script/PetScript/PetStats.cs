@@ -113,8 +113,31 @@ public class PetStats : MonoBehaviour
         if(cleanless > 100)
             cleanless = 100;
         UpdateStats();
+        GiveXp(15);
 
 
+
+    }
+    public void GiveHappiness(int ammount)
+    {
+        happiness += ammount;
+        if (happiness > 100)
+            happiness = 100;
+        UpdateStats();
+        GiveXp(15);
+        FindObjectOfType<AudioManager>().Play("playing_with_pet");
+
+    }
+
+    public void FeedPet(int ammount) {
+
+        hunger += ammount;
+        if (hunger > 100)
+            hunger = 100;
+
+        GiveXp(15);
+        FindObjectOfType<AudioManager>().Play("feeding_pet");
+        UpdateStats();
 
     }
 

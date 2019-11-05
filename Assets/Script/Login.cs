@@ -15,7 +15,7 @@ public class Login : MonoBehaviour
     private String[] Lines;
 
     public void LoginButton()
-    {
+    {/*
         bool UN = false;
         bool PW = false;
         if (Username != "")
@@ -64,7 +64,8 @@ public class Login : MonoBehaviour
             print("Login Sucessful");
             UnityEngine.SceneManagement.SceneManager.LoadScene("MainScene");
             //SceneManager.LoadLevel("MainScene");
-        }
+        }*/
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainScene");
     }
 
     // Start is called before the first frame update

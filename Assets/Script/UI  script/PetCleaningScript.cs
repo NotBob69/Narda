@@ -14,12 +14,10 @@ public class PetCleaningScript : MonoBehaviour
     {
  
         if(!isSpongeOut)
-						FindObjectOfType<AudioManager>().Play("cleaning_pet");
-
         Instantiate(sponge, cleanButton.transform.position,new Quaternion(0,0,0,0));
 
         isSpongeOut = true;
-					FindObjectOfType<AudioManager>().Play("cleaning_pet");
+		
 
 		
 

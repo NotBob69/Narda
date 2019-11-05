@@ -64,6 +64,8 @@ public class SpongeCleaning : MonoBehaviour
         if (other.CompareTag("Pet")) {
             gameplaymanager.GetComponent<PetStats>().cleanless += 5;
             gameplaymanager.GetComponent<PetStats>().UpdateStats();
+            gameplaymanager.GetComponent<PetStats>().GiveXp(10);
+            FindObjectOfType<AudioManager>().Play("cleaning_pet");
 
 
         }
@@ -75,6 +77,8 @@ public class SpongeCleaning : MonoBehaviour
         {
             gameplaymanager.GetComponent<PetStats>().cleanless += 5;
             gameplaymanager.GetComponent<PetStats>().UpdateStats();
+            gameplaymanager.GetComponent<PetStats>().GiveXp(10);
+            FindObjectOfType<AudioManager>().Play("cleaning_pet");
 
         }
 
