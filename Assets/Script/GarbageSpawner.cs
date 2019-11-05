@@ -28,7 +28,7 @@ public class GarbageSpawner : MonoBehaviour
     {
         
 
-         int bag = Random.Range(1, 10);
+         int bag = Random.Range(3, 10);
 
            for (int i = 0; i < bag; i++ )
            {

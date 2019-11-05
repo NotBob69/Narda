@@ -108,6 +108,15 @@ public class PetStats : MonoBehaviour
         changedXp = true;
 
     }
+    public void GiveCleanless(int ammount) {
+        cleanless += ammount;
+        if(cleanless > 100)
+            cleanless = 100;
+        UpdateStats();
+
+
+
+    }
 
     
 

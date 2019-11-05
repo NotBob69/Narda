@@ -14,23 +14,13 @@ public class GarbageBag : MonoBehaviour
     public int hp;
 
     public ActionScript touched;
-
-    public ItemScript item;
-    public int id;
-    public ItemScript.ItemType type;
-    public float itemCost;
+    private PetStats petstats;
     // Start is called before the first frame update
     void Start()
     {
-       // id = item.itemId;
-       // gameObject.GetComponent<SpriteRenderer>().sprite = item.itemSprite;
-       // type = item.type;
-       // itemCost = item.itemCost;
-
-        Spawn();
         touched = gameObject.GetComponent<ActionScript>();
-
-        hp = Random.Range(2, 40);
+        petstats = GameObject.Find("Gameplay manager").GetComponent<PetStats>();
+        hp = Random.Range(2, 10);
     }
 
     // Update is called once per frame
@@ -43,33 +33,13 @@ public class GarbageBag : MonoBehaviour
         }
     }
 
-    void Spawn()
-    {
-        //Choose random spawnpoint
-          int spawn = Random.Range(0, spawnpoint.Length);
-
-          this.transform.position = spawnpoint[spawn].position;
-
-        //current location coordinate
-           currentTrashWaypoint = spawnpoint[spawn];
-
-
-          transform.position = spawnpoint[spawn].transform.position;
-
-      //  int bag = Random.Range(4, 10);
-
-     //   for (int i = 0; i < bag; i++ )
-     //   {
-     //       Instantiate(garbageBag, spawnpoint[Random.Range(0, spawnpoint.Length)].position, new Quaternion(0,0,0,0));
-     //   }
-    }
 
     public void Clean()
     {
         hp--;
         if (hp <= 0)
         {
-
+            petstats.GiveCleanless(5);
             Destroy(this.gameObject);
         }
     }
